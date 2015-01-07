@@ -1,4 +1,4 @@
-# gulp-w3c-css
+# gulp-w3c-css [![Build Status](https://travis-ci.org/gchudnov/gulp-w3c-css.svg?branch=master)](https://travis-ci.org/gchudnov/gulp-w3c-css)
 A Gulp plugin for CSS Validation using W3C CSS Validation Service
 
 Depends on [w3c-css](https://github.com/gchudnov/w3c-css) package.
