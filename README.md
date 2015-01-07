@@ -10,11 +10,12 @@ var validate = require('gulp-w3c-css');
 ## Usage
 
 Validate all `*.css` files in the `/css` directory and write result to the `/build` directory.
+If there are no errors or warnings, the resulting file will be empty. Otherwise the file will contain errors and warnings as JSON object:
+```javascript
+{"errors":[ /* ... */ ],"warnings":[ /* ... */ ] }
+```
 
 ```javascript
-// If errors not found, the resulting file will be empty. Otherwise the file will contain errors and warnings found:
-//   {"errors":[ ... ],"warnings":[ ... ] }
-
 var path = require('path');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
@@ -27,7 +28,8 @@ gulp.src(srcPath)
   .pipe(gulp.dest(dstPath));
 ```
 
-Validate files and return
+Validate files and return an array of results:
+`files[i].contents.toString()` is empty if there are no errors or warnings in the file
 
 ```javascript
 var srcPath = path.join(__dirname, './css/*.css');
@@ -40,8 +42,7 @@ gulp.src(srcPath)
   .pipe(validate())
   .pipe(gutil.buffer(function(err, files) {
     // err - an error encountered
-    // files - array of files
-    //         files[i].contents.toString() is empty if there are no errors or warnings in the file
+    // files - array of validation results
   }));
 ```
 
