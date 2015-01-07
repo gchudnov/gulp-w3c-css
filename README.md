@@ -1,7 +1,7 @@
 # gulp-w3c-css
 A Gulp plugin for CSS Validation using W3C CSS Validation Service
 
-Depends on [w3c-css](https://github.com/gchudnov/w3c-css) package
+Depends on [w3c-css](https://github.com/gchudnov/w3c-css) package.
 
 ```javascript
 var validate = require('gulp-w3c-css');
@@ -9,8 +9,8 @@ var validate = require('gulp-w3c-css');
 
 ## Usage
 
-Validate all `*.css` files in the `/css` directory and write result to the `/build` directory.
-If there are no errors or warnings, the resulting file will be empty. Otherwise the file will contain errors and warnings as JSON object:
+Validate all `*.css` files in the `/css` directory and write results to the `/build` directory.
+If there are no errors or warnings in a file, the resulting file will be empty. Otherwise the file will contain errors and warnings as JSON object:
 ```javascript
 {"errors":[ /* ... */ ],"warnings":[ /* ... */ ] }
 ```
