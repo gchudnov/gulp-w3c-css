@@ -1,0 +1,41 @@
+{
+  "name": "gulp-w3c-css",
+  "version": "0.1.0",
+  "description": "A Gulp plugin for CSS Validation",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gchudnov/gulp-w3c-css.git"
+  },
+  "keywords": [
+    "gulp",
+    "gulpplugin",
+    "css",
+    "stylesheet",
+    "styles",
+    "w3c",
+    "validate",
+    "lint"
+  ],
+  "author": "Grigoriy Chudnov <g.chudnov@gmail.com> (https://github.com/gchudnov)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gchudnov/gulp-w3c-css/issues"
+  },
+  "homepage": "https://github.com/gchudnov/gulp-w3c-css",
+  "dependencies": {
+    "event-stream": "^3.2.1",
+    "gulp-util": "^3.0.2",
+    "lodash.assign": "^2.4.1",
+    "w3c-css": "^0.3.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.10",
+    "mocha": "^2.1.0",
+    "should": "^4.4.2",
+    "stream-assert": "^2.0.2"
+  }
+}
