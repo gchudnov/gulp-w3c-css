@@ -17,6 +17,7 @@ var TEST_DELAY = 1000;
 
 
 describe('Document', function() {
+  this.timeout(10000);
 
   describe('Collection', function() {
 
