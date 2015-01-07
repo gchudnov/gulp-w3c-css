@@ -12,7 +12,7 @@ var validate = require('gulp-w3c-css');
 Validate all `*.css` files in the `/css` directory and write results to the `/build` directory.
 If there are no errors or warnings in a file, the resulting file will be empty. Otherwise the file will contain errors and warnings as JSON object:
 ```javascript
-{"errors":[ /* ... */ ],"warnings":[ /* ... */ ] }
+{ "errors":[ /* ... */ ],"warnings":[ /* ... */ ] }
 ```
 
 ```javascript
@@ -28,8 +28,7 @@ gulp.src(srcPath)
   .pipe(gulp.dest(dstPath));
 ```
 
-Validate files and return an array of results:
-`files[i].contents.toString()` is empty if there are no errors or warnings in the file
+
 
 ```javascript
 var srcPath = path.join(__dirname, './css/*.css');
@@ -43,8 +42,15 @@ gulp.src(srcPath)
   .pipe(gutil.buffer(function(err, files) {
     // err - an error encountered
     // files - array of validation results
+    // files[i].contents is empty if there are no errors or warnings found
   }));
 ```
+
+## Arguments
+The first argument to the validate function can be an options object with the following [properties](https://github.com/gchudnov/w3c-css#arguments):
+* profile - the CSS profile used for the validation: css1, css2, css21, css3 [default: 'css3']
+* usermedium - the medium used for the validation: screen, print, ... [default: 'all']
+
 
 ## Contact
 
