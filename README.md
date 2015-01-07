@@ -28,7 +28,7 @@ gulp.src(srcPath)
   .pipe(gulp.dest(dstPath));
 ```
 
-
+OR
 
 ```javascript
 var srcPath = path.join(__dirname, './css/*.css');
@@ -48,8 +48,8 @@ gulp.src(srcPath)
 
 ## Arguments
 The first argument to the validate function can be an options object with the following [properties](https://github.com/gchudnov/w3c-css#arguments):
-* profile - the CSS profile used for the validation: css1, css2, css21, css3 [default: 'css3']
-* usermedium - the medium used for the validation: screen, print, ... [default: 'all']
+* profile - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
+* usermedium - the medium used for the validation: `screen, print, ...` [default: 'all']
 
 
 ## Contact
