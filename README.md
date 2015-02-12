@@ -35,11 +35,13 @@ gulp.src(srcPath)
 OR
 
 ```javascript
-var srcPath = path.join(__dirname, './css/*.css');
+var validate = require('gulp-w3c-css');
 
 var path = require('path');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
+
+var srcPath = path.join(__dirname, './css/*.css');
 
 gulp.src(srcPath)
   .pipe(validate())
