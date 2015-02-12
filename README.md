@@ -3,14 +3,11 @@ A Gulp plugin for CSS Validation using W3C CSS Validation Service
 
 Depends on [w3c-css](https://github.com/gchudnov/w3c-css) package.
 
-Installation
+## Installation
 ```bash
 $ npm install gulp-w3c-css
 ```
 
-```javascript
-var validate = require('gulp-w3c-css');
-```
 
 ## Usage
 
@@ -21,6 +18,8 @@ If there are no errors or warnings in a file, the resulting file will be empty. 
 ```
 
 ```javascript
+var validate = require('gulp-w3c-css');
+
 var path = require('path');
 var gulp = require('gulp');
 var gutil = require('gulp-util');
