@@ -52,6 +52,11 @@ gulp.src(srcPath)
   }));
 ```
 
+## Note
+> Please make sure your script [sleep for at least 1 second between requests](http://jigsaw.w3.org/css-validator/manual.html).
+> The CSS Validation service is a free, public service for all, your respect is appreciated.
+
+
 ## Arguments
 The first argument to the validate function can be an options object with the following [properties](https://github.com/gchudnov/w3c-css#arguments):
 * profile - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
