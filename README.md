@@ -55,9 +55,9 @@ gulp.src(srcPath)
 
 ## Arguments
 The first argument to the validate function can be an options object with the following [properties](https://github.com/gchudnov/w3c-css#arguments):
-* sleep - time to sleep _between_ the requests, milliseconds [default: 1500 -- 1.5 seconds]. This option is required if you intend to validate several CSS files at once. Make sure the `sleep` value [is greater than 1 second](http://jigsaw.w3.org/css-validator/manual.html). Otherwise, you might be temporarily banned from the W3C CSS Validation service.
-* profile - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
-* usermedium - the medium used for the validation: `screen, print, ...` [default: 'all']
+* `sleep` - time to sleep _between_ the requests, milliseconds [default: 1500 -- 1.5 seconds]. This option is required if you intend to validate several CSS files at once. Make sure its value [is greater than 1 second](http://jigsaw.w3.org/css-validator/manual.html). Otherwise, you might be temporarily banned from the W3C CSS Validation service.
+* `profile` - the CSS profile used for the validation: `css1, css2, css21, css3` [default: 'css3']
+* `usermedium` - the medium used for the validation: `screen, print, ...` [default: 'all']
 
 
 ## Contact
