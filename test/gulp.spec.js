@@ -21,7 +21,7 @@ describe('Document', function() {
 
   describe('Collection', function() {
 
-    it.only("can be checked for errors and warnings", function(done) {
+    it("can be checked for errors and warnings", function(done) {
       setTimeout(function() {
         var srcPath = path.join(__dirname, './css/*.css');
         var dstPath = path.join(__dirname, './build');
