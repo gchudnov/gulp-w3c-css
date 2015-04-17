@@ -13,15 +13,15 @@ var assert = require('stream-assert');
  * ...please make sure that your script will sleep for at least 1 second between requests.
  * The CSS Validation service is a free, public service for all, your respect is appreciated. thanks.
  */
-var TEST_DELAY = 1000;
+var TEST_DELAY = 1500;
 
 
 describe('Document', function() {
-  this.timeout(10000);
+  this.timeout(20000);
 
   describe('Collection', function() {
 
-    it("can be checked for errors and warnings", function(done) {
+    it.only("can be checked for errors and warnings", function(done) {
       setTimeout(function() {
         var srcPath = path.join(__dirname, './css/*.css');
         var dstPath = path.join(__dirname, './build');

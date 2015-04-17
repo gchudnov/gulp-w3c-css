@@ -1,6 +1,6 @@
 'use strict';
 
-var es = require('event-stream');
+var through2 = require('through2');
 var gutil = require('gulp-util');
 var extend = require('lodash.assign');
 var Buffer = require('buffer').Buffer;
@@ -13,30 +13,33 @@ var TAG = 'gulp-w3c-css';
 
 var validatePlugin = function (params) {
   params = params || {};
+  var sleep = params.sleep || 1500;
 
-  return es.map(function (file, cb) {
+  var lastCall;
 
-    if (file.isNull()) {
+  return through2.obj(function(file, enc, cb) {
+    if(file.isNull()) {
       return cb(null, file);
     }
 
-    if (file.isStream()) {
+    if(file.isStream()) {
       return cb(new PluginError(TAG, 'Streaming not supported'));
     }
 
-    try {
-      var p = extend({ text: file.contents }, params);
-      validator.validate(p, function(err, data) {
+    var sleepValue = (lastCall ? (Date.now() - lastCall < sleep ? sleep : 0) : 0);
+
+    var p = extend({ text: file.contents }, params);
+    setTimeout(function() {
+      validator.validate(p, function (err, data) {
+        lastCall = Date.now();
         if(err) {
           cb(new PluginError(TAG, err));
         } else {
-            file.contents = (data.errors.length || data.warnings.length) ? new Buffer(JSON.stringify(data)) : new Buffer(0);
-            cb(null, file);
+          file.contents = (data.errors.length || data.warnings.length) ? new Buffer(JSON.stringify(data)) : new Buffer(0);
+          cb(null, file);
         }
       });
-    } catch(err) {
-      cb(new PluginError(TAG, err));
-    }
+    }, sleepValue);
   });
 };
 
