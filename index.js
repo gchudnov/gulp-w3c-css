@@ -26,7 +26,7 @@ var validatePlugin = function (params) {
       return cb(new PluginError(TAG, 'Streaming not supported'));
     }
 
-    var sleepValue = (lastCall ? (Date.now() - lastCall < sleep ? sleep : 0) : 0);
+    var sleepValue = (lastCall ? ((Date.now() - lastCall) < sleep ? sleep : 0) : 0);
 
     var p = extend({ text: file.contents }, params);
     setTimeout(function() {
