@@ -28,7 +28,7 @@ var validatePlugin = function (params) {
 
     var sleepValue = (lastCall ? ((Date.now() - lastCall) < sleep ? sleep : 0) : 0);
 
-    var p = extend({ text: file.contents }, params);
+    var p = extend({ text: String(file.contents) }, params);
     setTimeout(function() {
       validator.validate(p, function (err, data) {
         lastCall = Date.now();
