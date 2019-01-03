@@ -1,12 +1,10 @@
 'use strict';
 
 var through2 = require('through2');
-var gutil = require('gulp-util');
+var PluginError = require('plugin-error');
 var extend = require('lodash.assign');
 var Buffer = require('buffer').Buffer;
 var validator = require('w3c-css');
-
-var PluginError = gutil.PluginError;
 
 var TAG = 'gulp-w3c-css';
 
@@ -35,7 +33,7 @@ var validatePlugin = function (params) {
         if(err) {
           cb(new PluginError(TAG, err));
         } else {
-          file.contents = (data.errors.length || data.warnings.length) ? new Buffer(JSON.stringify(data)) : new Buffer(0);
+          file.contents = (data.errors.length || data.warnings.length) ? Buffer.from(JSON.stringify(data)) : Buffer.alloc(0);
           cb(null, file);
         }
       });

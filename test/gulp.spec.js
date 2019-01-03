@@ -2,7 +2,7 @@
 
 var path = require('path');
 var gulp = require('gulp');
-var gutil = require('gulp-util');
+var ListStream = require('list-stream');
 var should = require('should');
 var validate = require('../');
 var assert = require('stream-assert');
@@ -43,7 +43,7 @@ describe('Document', function() {
         var srcPath = path.join(__dirname, './css/has-errors.css');
         gulp.src(srcPath)
           .pipe(validate())
-          .pipe(gutil.buffer(function(err, files) {
+          .pipe(ListStream.obj(function(err, files) {
             should.not.exist(err);
             should.exist(files);
             files.length.should.eql(1);
@@ -67,7 +67,7 @@ describe('Document', function() {
         var srcPath = path.join(__dirname, './css/has-warnings.css');
         gulp.src(srcPath)
           .pipe(validate())
-          .pipe(gutil.buffer(function(err, files) {
+          .pipe(ListStream.obj(function(err, files) {
             should.not.exist(err);
             should.exist(files);
             files.length.should.eql(1);
@@ -91,7 +91,7 @@ describe('Document', function() {
         var srcPath = path.join(__dirname, './css/has-no-errors.css');
         gulp.src(srcPath)
           .pipe(validate())
-          .pipe(gutil.buffer(function(err, files) {
+          .pipe(ListStream.obj(function(err, files) {
             should.not.exist(err);
             should.exist(files);
             files.length.should.eql(1);

@@ -22,7 +22,6 @@ var validate = require('gulp-w3c-css');
 
 var path = require('path');
 var gulp = require('gulp');
-var gutil = require('gulp-util');
 
 var srcPath = path.join(__dirname, './css/*.css');
 var dstPath = path.join(__dirname, './build');
@@ -39,13 +38,13 @@ var validate = require('gulp-w3c-css');
 
 var path = require('path');
 var gulp = require('gulp');
-var gutil = require('gulp-util');
+var ListStream = require('list-stream');
 
 var srcPath = path.join(__dirname, './css/*.css');
 
 gulp.src(srcPath)
   .pipe(validate())
-  .pipe(gutil.buffer(function(err, files) {
+  .pipe(ListStream.obj(function(err, files) {
     // err - an error encountered
     // files - array of validation results
     // files[i].contents is empty if there are no errors or warnings found
